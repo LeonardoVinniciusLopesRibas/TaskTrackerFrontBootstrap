@@ -1,0 +1,13 @@
+<div class="header d-flex">
+    <div class="p-2 m-2">
+        <button [routerLink]="['/admin/usuario']">Usuários</button>
+        <button [routerLink]="['/admin/tarefas']">Tarefas</button>
+        <button [routerLink]="['/admin/habitos']">Hábitos</button>
+        <button (click)="deslogar()">Sair</button>
+    </div>
+</div>
+<div class="container d-flex flex-column content">
+    
+        <router-outlet></router-outlet>
+    
+</div>

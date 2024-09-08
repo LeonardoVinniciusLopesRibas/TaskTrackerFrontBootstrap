@@ -1,0 +1,74 @@
+<div class="container m-5 content">
+    <div class="d-flex">
+        <div class="p-2 m-2 div-button">
+            <button class="button-novo" (click)="openModal()">Novo</button>
+        </div>
+    </div>
+
+    <div class="modal" [ngClass]="{'show': showModal}" (click)="closeModal()">
+        <div class="modal-dialog" (click)="$event.stopPropagation()">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nova Tarefa</h5>
+                    <button type="button" class="btn-close" (click)="closeModal()"></button>
+                </div>
+                <div class="modal-body">
+                    <form (ngSubmit)="addTarefa()">
+                        <div class="mb-3">
+                            <label for="descricao" class="form-label">Descrição</label>
+                            <input type="text" class="form-control" id="descricao" [(ngModel)]="novaTarefa.descricao"
+                                name="descricao" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dataInicio" class="form-label">Data Início</label>
+                            <input type="date" class="form-control" id="dataInicio" [(ngModel)]="novaTarefa.dataInicio"
+                                name="dataInicio" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dataFim" class="form-label">Data Limite</label>
+                            <input type="date" class="form-control" id="dataFim" [(ngModel)]="novaTarefa.dataFim"
+                                name="dataFim" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive mt-4">
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Descrição</th>
+                    <th>Data Início</th>
+                    <th>Data Limite</th>
+                    <th>Status</th>
+                    <th>Concluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tarefa of tarefas; let i = index">
+                    <th> {{ tarefa.id }}</th>
+                    <td>{{ tarefa.descricao }}</td>
+                    <td>{{ tarefa.dataInicio }}</td>
+                    <td>{{ tarefa.dataFim }}</td>
+                    <td [ngClass]="getStatusClass(tarefa.dataFim)">
+                        {{ getStatusText(tarefa.dataFim) }}
+                    </td>
+                    <td>
+                        <input 
+                          type="checkbox" 
+                          class="form-check-input" 
+                          [checked]="tarefa.concluida"
+                          (change)="onCheckboxChange($event, tarefa.id)"
+                        />
+                      </td>
+                      
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>

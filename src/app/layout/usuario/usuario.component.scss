@@ -1,0 +1,60 @@
+.content{
+    height: 65vh;
+    width: auto;
+    background-color: white;
+    box-shadow: 0px 15px 15px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 10px;
+    position: relative;
+}
+.div-button{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.button-novo {
+    background-color: #ffe600;
+    color: #000000;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-novo:hover {
+    background-color: #ffe600;
+    transform: scale(1.05);
+}
+
+.button-novo:active {
+    background-color: #ffe600;
+    transform: scale(0.98);
+}
+
+.button-acoes {
+    background-color: #b90000;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-acoes:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.button-acoes:active {
+    background-color: #004080;
+    transform: scale(0.98);
+}
